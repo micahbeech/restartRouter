@@ -1,10 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from pathlib import Path
 import time
 
-driver = webdriver.Chrome('/Users/micahbeech/chromedriver')
+home = str(Path.home())
 
-credentials = open("/Users/micahbeech/routerCredentials.txt", "r").readlines()
+driver = webdriver.Chrome(home + '/chromedriver')
+
+credentials = open(home + '/routerCredentials.txt', 'r').readlines()
 
 if len(credentials) != 3:
     print("Please add the username and password for your router admin in ~/routerCredentials.txt")
